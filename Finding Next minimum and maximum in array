@@ -1,0 +1,40 @@
+arr = [2,3,1,4,7,9,10,100,65,4,0,78,54]
+
+## sd ---> For both maximum and minimum index position
+## Example : sd = 2 for finding second index for both minimum and maximum
+##           sd = 3 for finding three index for both minimum and maximum
+
+def mini(arr, sd):
+    small = arr[0]
+    for i in arr:
+        if i < small:
+            small = i
+    sd -= 1
+    if sd:
+        arr.remove(small)
+        small = mini(arr, sd)
+        return small
+    else:
+        return small
+
+
+def maxi(arr, sd):
+    large = arr[0]
+    for i in arr:
+        if i > large:
+            large = i
+    sd -= 1
+    if sd:
+        arr.remove(large)
+        large = maxi(arr, sd)
+        return large
+    else:
+        return large
+
+## main code:
+## we are using copy() method because of arr(list) is changable (mutable)
+
+arr1 = arr.copy()
+arr2 = arr.copy()
+
+print("Second minimum : ",mini(arr1, 2),"Second maximum : ",maxi(arr2, 2))
