@@ -2,7 +2,7 @@ arr = [2,3,1,4,7,9,10,100,65,4,0,78,54]
 
 ## sd ---> For both maximum and minimum index position
 ## Example : sd = 2 for finding second index for both minimum and maximum
-##           sd = 3 for finding three index for both minimum and maximum
+##           sd = 3 for finding third index for both minimum and maximum
 
 def mini(arr, sd):
     small = arr[0]
@@ -39,8 +39,9 @@ arr2 = arr.copy()
 
 print("Second minimum : ",mini(arr1, 2),"Second maximum : ",maxi(arr2, 2))
 
-#=======================================================================================================================================================#
 
+#=======================================================================================================================================================#
+#========================================== USING CLASS ================================================#
 class find_max_min:    
     def __init__(self, arr):
         self.arr = arr
