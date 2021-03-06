@@ -38,3 +38,40 @@ arr1 = arr.copy()
 arr2 = arr.copy()
 
 print("Second minimum : ",mini(arr1, 2),"Second maximum : ",maxi(arr2, 2))
+
+#=======================================================================================================================================================#
+
+class find_max_min:    
+    def __init__(self, arr):
+        self.arr = arr
+    def minimum(self,sd):
+        self.sd = sd
+        self.small = self.arr[0]
+        for i in self.arr:
+            if i < self.small:
+                self.small = i
+        self.sd = self.sd - 1
+        if self.sd:
+            self.arr.remove(self.small)
+            self.small = self.minimum(self.sd)
+            return self.small
+        else:
+            return self.small
+    def maximum(self, sd):
+        self.sd = sd
+        self.large = self.arr[0]
+        for i in self.arr:
+            if i > self.large:
+                self.large = i
+        self.sd = self.sd - 1
+        if self.sd:
+            self.arr.remove(self.large)
+            self.large = self.maximum(self.sd)
+            return self.large
+        else:
+            return self.large
+
+a1 = find_max_min(arr.copy())
+print("Minimum : ",a1.minimum(2)) ### arg 2 for second minimum
+print("Maximum : ",a1.maximum(2)) ### arg 2 for second maximum
+
